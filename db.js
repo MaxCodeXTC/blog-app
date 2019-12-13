@@ -1,6 +1,6 @@
 const mongodb = require("mongodb")
 
-const connectionString = "mongodb+srv://todoAppUser:todoApp@cluster0-bnwc4.mongodb.net/blog-app?retryWrites=true&w=majority"
+const connectionString = ""
 
 mongodb.connect(connectionString, 
   {useNewUrlParser: true, useUnifiedTopology: true}, 
