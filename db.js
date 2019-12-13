@@ -1,8 +1,7 @@
+const dotenv = require("dotenv").config()
 const mongodb = require("mongodb")
 
-const connectionString = "mongodb+srv://todoAppUser:todoApp@cluster0-bnwc4.mongodb.net/blog-app?retryWrites=true&w=majority"
-
-mongodb.connect(connectionString, 
+mongodb.connect(process.env.CONNECTION_STRING, 
   {useNewUrlParser: true, useUnifiedTopology: true}, 
   function(err, client) {
     module.exports = client.db()
