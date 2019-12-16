@@ -1,19 +1,17 @@
 const express = require("express")
 const session = require("express-session")
 const app = express()
-const router = require("./router")
 
 let sessionOptions = session({
-  secret: "New user session started.",
+  secret: "New Session started.",
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24,
-    httpOnly: true
-  }
+  cookie: {maxAge: 1000 * 60 * 60 * 24, httpOnly: true}
 })
 
 app.use(sessionOptions)
+
+const router = require("./router")
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
