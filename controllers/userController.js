@@ -3,16 +3,19 @@ const User = require('../models/User')
 exports.login = function(req, res) {
   let user = new User(req.body)
   user.login().then(function(result) {
-    req.session.user = {loginInfo: "initial", username: user.data.username}
+    //a new property named user is being created in the req.session object
+    req.session.user = {
+      loginInfo: "initial",
+      username: user.data.username //coming from User.js in the login prototype method.
+    }
     res.send(result)
   }).catch(function(e) {
     res.send(e)
   })
 }
 
-exports.logout = function(req, res) {
-  req.session.destroy()
-  res.send("You are now logged out.")
+exports.logout = function() {
+  
 }
 
 exports.register = function(req, res) {
